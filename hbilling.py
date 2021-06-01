@@ -137,6 +137,9 @@ def main():
 # the role_entry function calls the data entry function specific to each user
         data_input = role_entry(user, starting_data)
 
+#each piece of this five-part if statement prepares data for the next iteration of the main function
+#each part feeds data into the mutable data sets above
+
 #user 1 is the patient who enters his or her own data which is passed to the clinic
         if user_role == "1":
             waiting_room.append(data_input)
