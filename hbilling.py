@@ -286,22 +286,23 @@ def reception_entry(padmit_sheet):
         cadmit_sheet[0] = "NoEntry"
         print("Please confirm identity and enter the identification number for: " + str(cadmit_sheet[1]) + " " + str(cadmit_sheet[2])) 
         show_photo = input("Press p to view the photo: ")
+        #image = "images/" + str(padmit_sheet[1]) + str(padmit_sheet[2]) + ".jpg"
         if show_photo == "p":
             image = "images/" + str(padmit_sheet[1]) + str(padmit_sheet[2]) + ".jpg"
-        if str(image) == "images/fredflintstone.jpg":
-            photo = SimpleImage(image)
-            photo.show()
-        elif str(image) == "images/wilmaflintstone.jpg":
-            photo = SimpleImage(image)
-            photo.show()
-        elif str(image) == "images/barneyrubble.jpg":
-            photo = SimpleImage(image)
-            photo.show()
-        elif str(image) == "images/bettyrubble.jpg":
-            photo = SimpleImage(image)
-            photo.show()
-        else:
-            print("No photo available.")
+            if str(image) == "images/fredflintstone.jpg":
+                photo = SimpleImage(image)
+                photo.show()
+            elif str(image) == "images/wilmaflintstone.jpg":
+                photo = SimpleImage(image)
+                photo.show()
+            elif str(image) == "images/barneyrubble.jpg":
+                photo = SimpleImage(image)
+                photo.show()
+            elif str(image) == "images/bettyrubble.jpg":
+                photo = SimpleImage(image)
+                photo.show()
+            else:
+                print("No photo available.")
     different_patient = input("If this is not the patient you are treating, type 'diff' here, otherwise press Enter: ")
     if different_patient == "diff":
         pfirstname = input("Please enter patient's first name: ")
@@ -383,8 +384,12 @@ def auditor_entry(ins_treatment_sheet):
         get_help = input("For help with codes, press h or press Enter to continue: ")
         if get_help == "h":
             print(MEDICAL_CODES)
-        auditor_code_1 = input("Please type the correct medical code here: ")
-        auditor_code_2 = input("Double check: Please re-enter the correct medical code here: ")
+        auditor_code_1 = input("Please type the correct medical code here or type EXIT: ")
+        if auditor_code_1 == "EXIT":
+            main()
+        auditor_code_2 = input("Double check: Please re-enter the correct medical code here or type EXIT: ")
+        if auditor_code_2 == "EXIT":
+            main()
         if auditor_code_1 == auditor_code_2:
             auditor_sheet[4] = auditor_code_2
         else:
