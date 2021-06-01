@@ -400,7 +400,7 @@ def auditor_entry(ins_treatment_sheet):
 #this is the main payment function
 def process_payment(service_code):
     print("Service Code " + str(service_code) + " is billed at $" + str(PAYMENT_CODES[service_code]))
-    payment_amount = float(PAYMENT_CODES[service_code])
+    payment_amount = int(PAYMENT_CODES[service_code])
     return payment_amount
     
 #this function is not used
